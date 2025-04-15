@@ -1,0 +1,28 @@
+.portfolio-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Espaço para o header fixo */
+}
+
+/* Animações de entrada para conteúdo */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:host ::ng-deep router-outlet + * {
+  animation: fadeIn 0.6s ease-out;
+  display: block;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 60px;
+  }
+}

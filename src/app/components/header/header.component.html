@@ -1,16 +1,21 @@
-<header class="header">
+<header class="header" [class.scrolled]="isScrolled">
   <div class="container">
     <div class="header-content">
-      <div class="logo">
+      <div class="logo" routerLink="/">
         <h1>Arthur Candian</h1>
         <p class="subtitle">Desenvolvedor Fullstack</p>
       </div>
       
-      <nav class="main-nav">
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Menu de navegação">
+        <span [class.active]="mobileMenuOpen"></span>
+      </button>
+      
+      <nav class="main-nav" [class.open]="mobileMenuOpen">
         <ul>
-          <li><a routerLink="/about" routerLinkActive="active">Sobre</a></li>
-          <li><a routerLink="/projects" routerLinkActive="active">Projetos</a></li>
-          <li><a routerLink="/contact" routerLinkActive="active">Contato</a></li>
+          <li><a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">Sobre</a></li>
+          <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMobileMenu()">Projetos</a></li>
+          <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contato</a></li>
+          <li><a href="#" class="highlight-btn" (click)="closeMobileMenu()">Currículo</a></li>
         </ul>
       </nav>
     </div>

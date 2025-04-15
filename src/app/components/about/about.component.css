@@ -46,9 +46,10 @@
   margin-top: 2rem;
 }
 
-.skills h3 {
+.skills h3, .education h3, .experience h3 {
   color: #2c3e50;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .skill-list {
@@ -66,6 +67,49 @@
   border-radius: 20px;
   font-size: 0.9rem;
   display: inline-block;
+}
+
+.education, .experience {
+  margin-top: 2rem;
+}
+
+.education-item, .experience-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.education-item:last-child, .experience-item:last-child {
+  border-bottom: none;
+}
+
+.education-item h4, .experience-item h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.institution, .company {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.period {
+  color: #777;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.experience-list {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.experience-list li {
+  margin-bottom: 0.5rem;
+  color: #555;
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
