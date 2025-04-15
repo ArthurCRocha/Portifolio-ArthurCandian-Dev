@@ -1,0 +1,79 @@
+.about-section {
+  padding: 4rem 0;
+  background-color: #f9f9f9;
+}
+
+.profile {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.profile-image {
+  flex: 1;
+  max-width: 300px;
+}
+
+.profile-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-content {
+  flex: 2;
+}
+
+.profile-content h2 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-title {
+  color: #3498db;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.bio p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.skills {
+  margin-top: 2rem;
+}
+
+.skills h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-tag {
+  background-color: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+  }
+  
+  .profile-image {
+    margin: 0 auto 2rem;
+  }
+}
