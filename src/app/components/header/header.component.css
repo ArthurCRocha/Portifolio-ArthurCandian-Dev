@@ -1,7 +1,7 @@
 .header {
-  background: #2c3e50;
+  background: var(--background-medium);
   padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -11,9 +11,9 @@
 }
 
 .header.scrolled {
-  background: rgba(44, 62, 80, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   padding: 0.7rem 0;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 10px rgba(139, 0, 0, 0.3);
 }
 
 .header-content {
@@ -33,12 +33,12 @@
 
 .logo h1 {
   margin: 0;
-  color: #fff;
+  color: var(--text-color);
   font-size: 1.8rem;
 }
 
 .subtitle {
-  color: #ecf0f1;
+  color: var(--text-light);
   margin: 0.2rem 0 0 0;
   font-size: 0.9rem;
   opacity: 0.8;
@@ -53,7 +53,7 @@
 }
 
 .main-nav a {
-  color: #ecf0f1;
+  color: var(--text-light);
   text-decoration: none;
   font-size: 1rem;
   padding: 0.5rem 0.8rem;
@@ -63,7 +63,7 @@
 }
 
 .main-nav a:hover, .main-nav a.active {
-  color: #3498db;
+  color: var(--secondary-color);
 }
 
 .main-nav a::after {
@@ -73,7 +73,7 @@
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #3498db;
+  background-color: var(--secondary-color);
   transition: all 0.3s ease;
 }
 
@@ -83,14 +83,14 @@
 }
 
 .highlight-btn {
-  background-color: #3498db;
-  color: white !important;
+  background-color: var(--primary-color);
+  color: var(--text-color) !important;
   padding: 0.5rem 1rem;
   border-radius: 20px;
 }
 
 .highlight-btn:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-dark);
   transform: translateY(-2px);
 }
 

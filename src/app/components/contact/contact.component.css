@@ -1,13 +1,25 @@
 .contact-section {
   padding: 4rem 0;
-  background-color: #f9f9f9;
+  background-color: var(--background-dark);
 }
 
 .section-title {
   text-align: center;
-  color: #2c3e50;
+  color: var(--text-color);
   font-size: 2.5rem;
   margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
 }
 
 .contact-content {
@@ -24,11 +36,11 @@
 
 .contact-icon {
   font-size: 1.5rem;
-  color: #3498db;
+  color: var(--secondary-color);
   margin-right: 1rem;
   width: 40px;
   height: 40px;
-  background: rgba(52, 152, 219, 0.1);
+  background: rgba(139, 0, 0, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -37,30 +49,31 @@
 
 .contact-text h3 {
   margin: 0 0 0.5rem;
-  color: #2c3e50;
+  color: var(--text-color);
   font-size: 1.2rem;
 }
 
 .contact-text a {
-  color: #555;
+  color: var(--text-light);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .contact-text a:hover {
-  color: #3498db;
+  color: var(--secondary-color);
 }
 
 .contact-form {
-  background: white;
+  background: var(--background-light);
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-color);
 }
 
 .contact-form h3 {
   margin: 0 0 1.5rem;
-  color: #2c3e50;
+  color: var(--secondary-color);
 }
 
 .form-group {
@@ -70,28 +83,31 @@
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #555;
+  color: var(--text-light);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  background-color: var(--background-medium);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 1rem;
+  color: var(--text-color);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #3498db;
+  border-color: var(--primary-color);
   outline: none;
+  box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.2);
 }
 
 .btn-submit {
   padding: 0.8rem 1.5rem;
-  background-color: #3498db;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -100,7 +116,7 @@
 }
 
 .btn-submit:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-dark);
 }
 
 @media (max-width: 768px) {
