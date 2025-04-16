@@ -6,17 +6,24 @@
 }
 
 :root {
-  --primary-color: #8B0000; /* Vermelho sangue */
-  --primary-dark: #5C0000; /* Vermelho sangue escuro */
-  --secondary-color: #D4AF37; /* Dourado */
-  --secondary-dark: #997A00; /* Dourado escuro */
-  --text-color: #FFFFFF; /* Branco */
-  --text-light: #CCCCCC; /* Cinza claro */
-  --background-dark: #000000; /* Preto */
-  --background-medium: #121212; /* Preto não tão escuro */
-  --background-light: #1E1E1E; /* Cinza muito escuro */
-  --border-color: #333333; /* Cinza escuro */
-  --box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  --primary-color: #7D4F2A; /* Sépia marrom escuro - inspirado nos desenhos de Da Vinci */
+  --primary-dark: #5A381E; /* Tom mais escuro do sépia */
+  --secondary-color: #C9A977; /* Dourado envelhecido - como em manuscritos antigos */
+  --secondary-dark: #9A7D50; /* Dourado envelhecido mais escuro */
+  --accent-color: #274257; /* Azul Da Vinci - inspirado no pigmento usado em suas obras */
+  --text-color: #F2E7D5; /* Pergaminho claro */
+  --text-dark: #1A1412; /* Tom quase preto com sutileza marrom */
+  --text-light: #D1C8B8; /* Tom pergaminho mais claro */
+  --background-dark: #171311; /* Fundo escuro com sutil tom marrom */
+  --background-medium: #1E1A16; /* Marrom muito escuro */
+  --background-light: #2A261F; /* Marrom escuro */
+  --border-color: #3E352D; /* Borda em tom sépia escuro */
+  --box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+  
+  /* Fontes */
+  --serif-font: 'Cormorant Garamond', 'Garamond', Georgia, serif;
+  --display-font: 'Cinzel', 'Times New Roman', serif;
+  --sans-font: 'Crimson Text', 'Georgia', serif;
 }
 
 html {
@@ -24,11 +31,28 @@ html {
 }
 
 body {
-  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  font-family: var(--sans-font);
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
   background-color: var(--background-dark);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Replace the image with a subtle noise texture created with CSS */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                   linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 15px 15px;
+  /* Original line: background-image: url('assets/images/paper-texture.png'); */
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .container {
@@ -44,7 +68,10 @@ body {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   position: relative;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
+  font-family: var(--display-font);
+  letter-spacing: 0.03em;
+  font-weight: 500;
 }
 
 .section-title::after {
@@ -53,40 +80,70 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--primary-color);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
   border-radius: 2px;
 }
 
+.section-title::before {
+  content: '✦';
+  display: block;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
 a {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-decoration: none;
   transition: color 0.3s;
 }
 
 a:hover {
-  color: var(--primary-dark);
+  color: var(--secondary-dark);
 }
 
+/* Botões estilo Da Vinci */
 .btn {
-  padding: 0.7rem 1.5rem;
+  padding: 0.8rem 1.8rem;
   background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
+  color: var(--text-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 2px;
   text-decoration: none;
   font-size: 1rem;
+  font-family: var(--serif-font);
   font-weight: 500;
+  letter-spacing: 0.05em;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: all 0.6s ease;
+  z-index: -1;
 }
 
 .btn:hover {
   background-color: var(--primary-dark);
   transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn:active {
@@ -95,13 +152,13 @@ a:hover {
 
 .btn-outline {
   background-color: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .btn-outline:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: rgba(201, 169, 119, 0.15);
+  color: var(--text-color);
 }
 
 img {
@@ -114,6 +171,7 @@ img {
   text-align: center;
 }
 
+/* Espaçamentos */
 .mt-1 { margin-top: 0.5rem; }
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }

@@ -1,0 +1,21 @@
+<section class="courses-section">
+  <div class="container">
+    <h2 class="section-title">Meus Cursos e Certificações</h2>
+    
+    <div class="courses-grid">
+      <div *ngFor="let course of courses" class="course-card">
+        <div class="course-info">
+          <h3>{{ course.title }}</h3>
+          <p class="course-provider">{{ course.provider }} | {{ course.date }}</p>
+          <p class="course-description">{{ course.description }}</p>
+          <div class="course-skills">
+            <span *ngFor="let skill of course.skills" class="skill-tag">{{ skill }}</span>
+          </div>
+          <div class="course-links">
+            <a [href]="course.certificateUrl" target="_blank" class="btn">Ver Certificado</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

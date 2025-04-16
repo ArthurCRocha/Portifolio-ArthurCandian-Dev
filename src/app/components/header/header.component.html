@@ -11,11 +11,13 @@
       </button>
       
       <nav class="main-nav" [class.open]="mobileMenuOpen">
-        <ul>
+        <ul [class.active]="mobileMenuOpen">
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Home</a></li>
           <li><a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">Sobre</a></li>
           <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMobileMenu()">Projetos</a></li>
+          <li><a routerLink="/courses" routerLinkActive="active" (click)="closeMobileMenu()">Cursos</a></li>
           <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contato</a></li>
-            <li><a href="assets/curriculo.pdf" download="Arthur_Candian_CV.pdf" class="highlight-btn" (click)="closeMobileMenu()">Currículo</a></li>
+          <li><a href="assets/curriculo.pdf" download="Arthur_Candian_CV.pdf" class="highlight-btn" (click)="closeMobileMenu()">Currículo</a></li>
         </ul>
       </nav>
     </div>

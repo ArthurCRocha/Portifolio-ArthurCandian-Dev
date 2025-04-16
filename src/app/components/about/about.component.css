@@ -1,23 +1,55 @@
 .about-section {
-  padding: 4rem 0;
+  padding: 6rem 0;
   background-color: var(--background-dark);
+  position: relative;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Replace the image with a subtle gradient background */
+  background: linear-gradient(rgba(23, 19, 17, 0.95), rgba(30, 26, 22, 0.95));
+  /* Original line: background-image: url('assets/images/davinci-notes-bg.png'); */
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .profile {
   display: flex;
   gap: 3rem;
   align-items: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
 .profile-image {
   flex: 1;
   max-width: 300px;
+  position: relative;
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--secondary-color);
+  border-radius: 2px;
+  z-index: -1;
 }
 
 .profile-image img {
   width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border: 2px solid var(--background-medium);
 }
 
 .profile-content {
@@ -28,28 +60,72 @@
   color: var(--text-color);
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  font-family: var(--display-font);
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.profile-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--secondary-color);
 }
 
 .job-title {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
+  font-family: var(--serif-font);
+  font-style: italic;
 }
 
 .bio p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
   color: var(--text-light);
+  font-family: var(--sans-font);
+  position: relative;
+  padding-left: 1rem;
+}
+
+.bio p::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 4px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
 }
 
 .skills {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .skills h3, .education h3, .experience h3 {
   color: var(--secondary-color);
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-family: var(--serif-font);
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.skills h3::after, .education h3::after, .experience h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--secondary-color);
 }
 
 .skill-list {
@@ -61,55 +137,91 @@
 }
 
 .skill-tag {
-  background-color: var(--primary-color);
-  color: var(--text-color);
+  background-color: rgba(125, 79, 42, 0.2);
+  color: var(--secondary-color);
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 2px;
   font-size: 0.9rem;
+  font-family: var(--sans-font);
   display: inline-block;
+  border: 1px solid rgba(201, 169, 119, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background-color: rgba(125, 79, 42, 0.4);
+  transform: translateY(-2px);
 }
 
 .education, .experience {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .education-item, .experience-item {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(201, 169, 119, 0.2);
+  position: relative;
 }
 
 .education-item:last-child, .experience-item:last-child {
   border-bottom: none;
 }
 
+.education-item::before, .experience-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  opacity: 0.6;
+}
+
 .education-item h4, .experience-item h4 {
   color: var(--text-color);
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
+  font-family: var(--serif-font);
+  font-weight: 600;
 }
 
 .institution, .company {
   font-weight: 500;
-  color: var(--text-light);
+  color: var(--secondary-color);
   margin-bottom: 0.3rem;
+  font-family: var(--sans-font);
+  font-size: 0.95rem;
 }
 
 .period {
-  color: var(--secondary-color);
+  color: var(--text-light);
   font-style: italic;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-family: var(--serif-font);
+  font-size: 0.9rem;
 }
 
 .experience-list {
   padding-left: 1.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
 }
 
 .experience-list li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
   color: var(--text-light);
-  line-height: 1.4;
+  line-height: 1.6;
+  font-family: var(--sans-font);
+  position: relative;
+}
+
+.experience-list li::before {
+  content: '•';
+  color: var(--secondary-color);
+  position: absolute;
+  left: -15px;
 }
 
 @media (max-width: 768px) {
@@ -118,6 +230,38 @@
   }
   
   .profile-image {
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
+  }
+  
+  .profile-content h2, .profile-content h2::after,
+  .skills h3, .skills h3::after,
+  .education h3, .education h3::after,
+  .experience h3, .experience h3::after {
+    display: block;
+    text-align: center;
+  }
+  
+  .profile-content h2::after,
+  .skills h3::after,
+  .education h3::after,
+  .experience h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+  }
+  
+  .job-title {
+    text-align: center;
+  }
+  
+  .education-item::before, .experience-item::before {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20px;
+  }
+  
+  .education-item, .experience-item {
+    padding-top: 20px;
+    text-align: center;
   }
 }
